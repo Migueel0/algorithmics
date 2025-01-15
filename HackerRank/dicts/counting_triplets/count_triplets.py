@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '.
 from utils.data_reader import read_txt_file
 
 
-'''# Si el ior actual puede completar una tripleta, se cuenta
+'''
 arr1 = [1,2,2,4]
 arr2 = [1,3,9,9,27,81]
 arr3 = [1,5,5,25,125]
