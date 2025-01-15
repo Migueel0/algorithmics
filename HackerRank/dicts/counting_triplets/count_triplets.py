@@ -35,10 +35,27 @@ def countTriplets(arr, r):
 
     return count
 
+def countTripletsRecursive(arr, r):
+    def rec_function(index, seconds, thirds, count):
+        if index >= len(arr):
+            return count
+        i = arr[index]
+        if i in thirds:
+            count += thirds[i]
+        if i in seconds:
+            thirds[i * r] = thirds.get(i * r, 0) + seconds[i]
+        seconds[i * r] = seconds.get(i * r, 0) + 1
+        return rec_function(index + 1, seconds, thirds, count)
+    
+    return rec_function(0, {}, {}, 0)
+
+
+    
+
 
 if __name__ == '__main__':
     def printer(test_case,arr,r,expected_output):
-        res = countTriplets(arr, r)
+        res = countTripletsRecursive(arr, r)
         print(f"Output:{res} \nExpected output:{expected_output}\n")
         assert res == expected_output , f"Expected output: {expected_output}, Your output: {res}"
         print(f"Test {test_case} passed")
